@@ -1,19 +1,19 @@
 {
- "sites": 103,
- "sites_offstreet": 102,
- "stalls": 16441,
- "cap_mw_upper": 20.55,
+ "sites": 96,
+ "sites_offstreet": 95,
+ "stalls": 15355,
+ "cap_mw_upper": 19.19,
  "gen_gwh": {
-  "low": 23.68,
-  "mid": 26.43,
-  "high": 27.21
+  "low": 22.11,
+  "mid": 24.68,
+  "high": 25.41
  },
  "co2_kt": {
-  "low": 9.88,
-  "mid": 11.03,
-  "high": 11.35
+  "low": 9.23,
+  "mid": 10.3,
+  "high": 10.6
  },
- "ev_sessions_equiv_mid": 1174618,
+ "ev_sessions_equiv_mid": 1097029,
  "city_plan": {
   "sites": 98,
   "mw": 22,
@@ -81,19 +81,19 @@
   },
   {
    "구군": "동구",
-   "sites": 12,
-   "stalls": 1806,
-   "cap_mw": 2.26,
-   "gen_gwh_mid": 2.9,
-   "co2_t_mid": 1211
+   "sites": 10,
+   "stalls": 1554,
+   "cap_mw": 1.94,
+   "gen_gwh_mid": 2.5,
+   "co2_t_mid": 1042
   },
   {
    "구군": "북구",
-   "sites": 27,
-   "stalls": 4149,
-   "cap_mw": 5.19,
-   "gen_gwh_mid": 6.67,
-   "co2_t_mid": 2783
+   "sites": 22,
+   "stalls": 3315,
+   "cap_mw": 4.14,
+   "gen_gwh_mid": 5.33,
+   "co2_t_mid": 2224
   },
   {
    "구군": "서구",

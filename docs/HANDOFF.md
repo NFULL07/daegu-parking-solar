@@ -20,13 +20,13 @@
 ## 화면 4개와 데이터
 
 ### 1. 지도 `sites.geojson`
-- 점 405개 = 대구 공영 노외·부설 주차장 전체. `group`: `mandate_ge80`(103, 의무 대상 후보) / `threshold_70_79`(15) / `under70`(287)
-- 색 = `tier`: `1단계`(29) `2단계`(62) `현장 검토`(12) `문턱(대상 가능)`(2) `문턱(70~79면)`(13), 그 외 null(회색·작게)
+- 점 396개 = 대구 공영 노외·부설 주차장 전체. `group`: `mandate_ge80`(96, 의무 대상 후보) / `threshold_70_79`(15) / `under70`(285)
+- 색 = `tier`: `1단계`(27) `2단계`(58) `현장 검토`(11) `문턱(대상 가능)`(2) `문턱(70~79면)`(13), 그 외 null(회색·작게)
 - 팝업: name, gu, stalls, cap_kw_upper, gen_mwh.low~high, co2_t_mid, flags(배열), rank, data_date
 - 필터: 구·군, 단계. 구 경계: `data/raw/boundary/daegu_sigungu_from_hjd_ver20250701.geojson` (속성 `sggnm`)
 
 ### 2. 감축효과 `summary_generation.json`, `summary_priority.json`
-- 핵심 카드: 대상 103곳 / 20.55MW(상한) / 연 23.7~27.2GWh / 연 9.9~11.4천tCO2eq (추정)
+- 핵심 카드: 대상 96곳 / 19.19MW(상한) / 연 22.1~25.4GWh / 연 9.2~10.6천tCO2eq (추정). 시·구 중복 등록 9건 제외 내역 `dedup_log.json`
 - 대구시 계획(98곳, 22MW)과 나란히: `city_plan`
 - 구별 막대: `by_gu` (sites, cap_mw, gen_gwh_mid, co2_t_mid)
 - 단계별 표: `summary_priority.tiers`, 현장 검토 목록: `review_list`

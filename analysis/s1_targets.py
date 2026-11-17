@@ -8,6 +8,24 @@ KW_PER_M2 = 0.1          # 설치의무 용량 = 면적/10 x 1kW
 c = pd.read_csv('data/raw/daegu_parking_standard.csv', encoding='utf-8-sig')
 pub = c[(c['주차장구분'] == '공영') & (c['주차장유형'].isin(['노외', '부설']))].copy()
 
+# 중복 등록 제거: 같은 주차장을 시(제공기관 '대구광역시')와 구·군이 각각 제공한 경우
+#   조건 = 제공기관이 시 vs 구·군, 거리 300m 이내, 공백 뺀 이름 앞 3글자 일치 → 시 제공 행 제외(관리 주체인 구·군 행 유지)
+import numpy as np
+pub['nm3'] = pub['주차장명'].str.replace(' ', '').str[:3]
+city = pub[pub['제공기관명'] == '대구광역시']; gu_ = pub[pub['제공기관명'] != '대구광역시']
+drop, log = [], []
+for i, a in city.iterrows():
+    for j, b in gu_[gu_.nm3 == a.nm3].iterrows():
+        d = 6371000 * np.hypot(np.radians(a['위도'] - b['위도']), np.radians(a['경도'] - b['경도']) * np.cos(np.radians(a['위도'])))
+        if d < 300:
+            drop.append(i)
+            log.append({'dropped': a['주차장명'], 'dropped_stalls': int(a['주차구획수']), 'kept': b['주차장명'],
+                        'kept_stalls': int(b['주차구획수']), 'kept_provider': b['제공기관명'], 'distance_m': int(round(d))})
+            break
+pub = pub.drop(index=drop)
+json.dump(log, open('out/dedup_log.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+print('중복 등록 제외', len(drop), log)
+
 # 구·군 매핑 (경계 폴리곤 포함 판정)
 gj = json.load(open('data/raw/boundary/daegu_sigungu_from_hjd_ver20250701.geojson', encoding='utf-8'))
 polys = [(f['properties']['sggnm'], shape(f['geometry'])) for f in gj['features']]

@@ -11,7 +11,17 @@ rows = list(csv.DictReader(open(src[0], encoding=src[1])))
 def daegu(r):
     return r['제공기관명'].startswith('대구광역시') or (' ' + r['소재지지번주소'] + ' ' + r['소재지도로명주소']).find(' 대구광역시') >= 0
 dg = [r for r in rows if daegu(r)]
-tg = [r for r in dg if r['주차장구분'] == '공영' and r['주차장유형'] in ('노외', '부설') and int(float(r['주차구획수'] or 0)) >= 80]
+import math
+pubs = [r for r in dg if r['주차장구분'] == '공영' and r['주차장유형'] in ('노외', '부설')]
+def dist(a, b):
+    la1, lo1, la2, lo2 = map(math.radians, (float(a['위도']), float(a['경도']), float(b['위도']), float(b['경도'])))
+    return 6371000 * math.hypot(la1 - la2, (lo1 - lo2) * math.cos(la1))
+key = lambda r: r['주차장명'].replace(' ', '')[:3]
+dup = {id(a) for a in pubs if a['제공기관명'] == '대구광역시'
+       for b in pubs if b['제공기관명'] != '대구광역시' and key(a) == key(b) and dist(a, b) < 300}
+pubs = [r for r in pubs if id(r) not in dup]
+check('시·구 중복 등록 제외 수', len(dup), len(json.load(open('out/dedup_log.json', encoding='utf-8'))), 0)
+tg = [r for r in pubs if int(float(r['주차구획수'] or 0)) >= 80]
 stalls = sum(int(float(r['주차구획수'])) for r in tg)
 S = json.load(open('out/summary_generation.json', encoding='utf-8'))
 check('대구 행 수', len(dg), 1086, 0)
