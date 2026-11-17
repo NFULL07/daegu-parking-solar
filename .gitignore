@@ -1,0 +1,6 @@
+data/raw/uploads/
+data/raw/khnp/
+analysis/*.pkl
+docs/forms/
+__pycache__/
+.DS_Store

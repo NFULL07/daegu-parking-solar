@@ -1,0 +1,21 @@
+{
+  "run_at": "2026-11-17T19:07:19",
+  "sources": {
+    "ewp": "https://www.data.go.kr/data/15144541/openapi.do",
+    "ev": "https://www.data.go.kr/data/15153595/openapi.do"
+  },
+  "ev": {
+    "status": "ok",
+    "rgnNm": "대구광역시",
+    "total_rows_region": 561942,
+    "pages_total": 5620,
+    "pages_sampled": 800,
+    "sampling": "전체 페이지 중 균등 간격 추출",
+    "rows": 79742,
+    "failed_pages": [
+      1126,
+      1133
+    ],
+    "file": "ev_charging_synthetic_daegu.csv"
+  }
+}

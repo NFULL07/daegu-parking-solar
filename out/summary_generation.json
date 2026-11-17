@@ -1,0 +1,135 @@
+{
+ "sites": 103,
+ "sites_offstreet": 102,
+ "stalls": 16441,
+ "cap_mw_upper": 20.55,
+ "gen_gwh": {
+  "low": 23.68,
+  "mid": 26.43,
+  "high": 27.21
+ },
+ "co2_kt": {
+  "low": 9.88,
+  "mid": 11.03,
+  "high": 11.35
+ },
+ "ev_sessions_equiv_mid": 1174618,
+ "city_plan": {
+  "sites": 98,
+  "mw": 22,
+  "gen_gwh": {
+   "low": 25.34,
+   "mid": 28.29,
+   "high": 29.13
+  },
+  "co2_kt": {
+   "low": 10.58,
+   "mid": 11.81,
+   "high": 12.16
+  }
+ },
+ "threshold": {
+  "sites": 15,
+  "min_stalls_for_1000m2": {
+   "general": 80,
+   "mix_ext30": 79,
+   "mix_ext30_dis3": 78
+  },
+  "over_1000m2_count": {
+   "general": 0,
+   "mix_ext30": 1,
+   "mix_ext30_dis3": 2
+  },
+  "over_1000m2_names_ext30_dis3": [
+   "월광 2주차장",
+   "성서3주차장"
+  ],
+  "cap_mw_if_all_included": 1.38
+ },
+ "by_gu": [
+  {
+   "구군": "군위군",
+   "sites": 7,
+   "stalls": 892,
+   "cap_mw": 1.12,
+   "gen_gwh_mid": 1.43,
+   "co2_t_mid": 598
+  },
+  {
+   "구군": "남구",
+   "sites": 4,
+   "stalls": 499,
+   "cap_mw": 0.62,
+   "gen_gwh_mid": 0.8,
+   "co2_t_mid": 335
+  },
+  {
+   "구군": "달서구",
+   "sites": 16,
+   "stalls": 2745,
+   "cap_mw": 3.43,
+   "gen_gwh_mid": 4.41,
+   "co2_t_mid": 1841
+  },
+  {
+   "구군": "달성군",
+   "sites": 17,
+   "stalls": 2260,
+   "cap_mw": 2.82,
+   "gen_gwh_mid": 3.63,
+   "co2_t_mid": 1516
+  },
+  {
+   "구군": "동구",
+   "sites": 12,
+   "stalls": 1806,
+   "cap_mw": 2.26,
+   "gen_gwh_mid": 2.9,
+   "co2_t_mid": 1211
+  },
+  {
+   "구군": "북구",
+   "sites": 27,
+   "stalls": 4149,
+   "cap_mw": 5.19,
+   "gen_gwh_mid": 6.67,
+   "co2_t_mid": 2783
+  },
+  {
+   "구군": "서구",
+   "sites": 6,
+   "stalls": 683,
+   "cap_mw": 0.85,
+   "gen_gwh_mid": 1.1,
+   "co2_t_mid": 458
+  },
+  {
+   "구군": "수성구",
+   "sites": 8,
+   "stalls": 1707,
+   "cap_mw": 2.13,
+   "gen_gwh_mid": 2.74,
+   "co2_t_mid": 1145
+  },
+  {
+   "구군": "중구",
+   "sites": 6,
+   "stalls": 1700,
+   "cap_mw": 2.12,
+   "gen_gwh_mid": 2.73,
+   "co2_t_mid": 1140
+  }
+ ],
+ "assumptions": {
+  "yield_kwh_per_kw": {
+   "low": 1152,
+   "mid": 1286,
+   "high": 1324
+  },
+  "emission_factor_tco2_per_mwh": 0.4173,
+  "stall_m2": 12.5,
+  "kw_per_m2": 0.1,
+  "ev_kwh_per_session": 22.5
+ },
+ "label": "추정치. 설치 불합리 구획 미차감(상한), 음영 미반영"
+}

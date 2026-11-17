@@ -1,0 +1,253 @@
+{
+ "_note": "계산용 기준값. status: confirmed=출처 확인, derived=확인값으로 계산, todo=미확정(사용 전 확인 필요). 수치를 바꿀 때는 source도 함께 갱신할 것.",
+ "mandate": {
+  "target_min_parking_area_m2": {
+   "value": 1000,
+   "status": "confirmed",
+   "source": "한국에너지공단 신재생에너지센터, 공영주차장 재생e 설비 설치의무화제도 (재생에너지법 제12조의13, 시행령 제18조의14~18)",
+   "url": "https://www.knrec.or.kr/biz/introduce/new_policy/public_parking.do?gubun=A"
+  },
+  "required_capacity_kw_per_m2": {
+   "value": 0.1,
+   "status": "confirmed",
+   "note": "설치의무 용량 = 유효주차구획 면적(㎡) / 10 x 1kW. 유효면적 = 주차구획 면적 - 설치 불합리 구획(규정 제56조, 세부 유형 미확인)",
+   "source": "한국에너지공단 신재생에너지센터",
+   "url": "https://www.knrec.or.kr/biz/introduce/new_policy/public_parking.do?gubun=A"
+  },
+  "applies_from": {
+   "value": "2025-11-28",
+   "status": "confirmed",
+   "note": "기존 설치·운영 중인 주차장에도 적용",
+   "source": "뉴스서울, 산업부 신재생에너지법 개정법률안 공포 (2025-05-27)",
+   "url": "https://newsseoul.co.kr/news/view/1065584418984238"
+  },
+  "excluded_stall_types": {
+   "value": null,
+   "status": "todo",
+   "note": "신·재생에너지 설비의 지원 등에 관한 규정 제56조 원문 확인 필요"
+  }
+ },
+ "parking_stall": {
+  "general_m2": {
+   "value": 12.5,
+   "status": "confirmed",
+   "note": "평행주차형식 외 일반형 2.5m x 5.0m",
+   "source": "주차장법 시행규칙 제3조",
+   "url": "https://www.law.go.kr/lsLinkCommonInfo.do%3FlspttninfSeq%3D81561%26chrClsCd%3D010202"
+  },
+  "extended_m2": {
+   "value": 13.52,
+   "status": "confirmed",
+   "note": "확장형 2.6m x 5.2m",
+   "source": "주차장법 시행규칙 제3조"
+  },
+  "disabled_m2": {
+   "value": 16.5,
+   "status": "confirmed",
+   "note": "장애인전용 3.3m x 5.0m",
+   "source": "주차장법 시행규칙 제3조"
+  },
+  "stalls_equiv_1000m2_general": {
+   "value": 80,
+   "status": "derived",
+   "note": "1000 / 12.5. 표준데이터에는 면적이 없고 주차구획수만 있어 면적은 구획수 x 구획면적으로 추정해야 함"
+  },
+  "extended_share_new_facilities": {
+   "value": 0.3,
+   "status": "confirmed",
+   "note": "2012년 신축 시설물 확장형 30% 이상 의무화(정책브리핑). 노외주차장은 시행규칙 제6조제1항제14호. 기존 주차장 실제 비율은 미확인 → 문턱 분석은 시나리오로만 사용",
+   "source": "정책브리핑 korea.kr",
+   "url": "https://www.korea.kr/news/issueQAView.do?newsId=148838703"
+  }
+ },
+ "emission_factor": {
+  "grid_tco2eq_per_mwh_2023": {
+   "value": 0.4173,
+   "status": "confirmed",
+   "note": "2025-12 공표. 직전 2020~2022 평균 0.4541. 2026-11-18 검색 기준 2024년 계수 공표 확인 못함 → 2023 계수 사용, 제출 전 재확인",
+   "source": "쿠키뉴스, 국가 온실가스 통계 관리위원회 2023년도 전력배출계수 공표",
+   "url": "https://www.kukinews.com/article/view/kuk202512180131"
+  }
+ },
+ "daegu_context": {
+  "city_plan_public_parking_sites": {
+   "value": 98,
+   "status": "confirmed",
+   "note": "주차면적 1,000㎡ 이상 공영주차장 98개소에 약 22MW 도입 계획. 우리 분석 결과의 대조 기준으로 사용",
+   "source": "브레이크뉴스 대구 (대구시 재생에너지 보급 현황 보도)",
+   "url": "https://dk.breaknews.com/205799"
+  },
+  "city_plan_public_parking_mw": {
+   "value": 22,
+   "status": "confirmed",
+   "source": "브레이크뉴스 대구",
+   "url": "https://dk.breaknews.com/205799"
+  },
+  "city_plan_avg_kw_per_site": {
+   "value": 224.5,
+   "status": "derived",
+   "note": "22000 / 98. 10㎡당 1kW 기준이면 평균 유효면적 약 2,245㎡, 일반형 기준 약 180면"
+  },
+  "renewable_cumulative_mw_2025": {
+   "value": 487,
+   "status": "confirmed",
+   "note": "출처 기사에 '전력거래소 전력통계정보시스템' 표기",
+   "source": "브레이크뉴스 대구",
+   "url": "https://dk.breaknews.com/205799"
+  },
+  "kpx_registered_pv_capacity_mw_2025": {
+   "value": 113.791,
+   "status": "derived",
+   "note": "동서발전 API pvKpxRst, 2024-12-02~2026-03-24 동일값(2026-03-27부터 123.805). 단위 MW로 해석(pvAll 497.5가 대구 재생e 누적 487MW와 같은 규모). KPX 2025 대구 150,718.1MWh / 113.791 = 약 1,324.5 kWh/kW, 이용률 약 15.1%",
+   "source": "한국동서발전 하루 전 시도별 태양광 발전량 예측값",
+   "url": "https://www.data.go.kr/data/15144541/openapi.do"
+  }
+ },
+ "tariff_context": {
+  "midday_ev_discount": {
+   "value": "주말·공휴일 11~14시 공공충전 전력량요금 50% 할인 (2026-09-05~10-31, 봄철 시범 4-18~5-31)",
+   "status": "confirmed",
+   "note": "2026년 4월 계절·시간대별 전기요금 개편과 연계. ESS·EV 운영 시나리오 근거",
+   "source": "디지털데일리 (기후에너지환경부 발표)",
+   "url": "https://www.ddaily.co.kr/page/view/2026090316291364668"
+  },
+  "tou_2026": {
+   "value": {
+    "charge_window": "10~17시",
+    "discharge_window": "18~21시"
+   },
+   "status": "confirmed",
+   "note": "2026-04-16 시행 계절·시간대별 요금 개편: 평일 11~15시 최고요금 → 중간요금으로 낮춤, 18~21시 최고요금으로 상향. 낮(10~17시) 요금 인하. 산업용(을)·전기차 충전 4/16, 일반용 등 6/1 확대. 요금 단가는 미사용(에너지량 기준 비교)",
+   "source": "경북매일(기후에너지환경부·한전 발표, 2026-04-14)",
+   "url": "https://www.kbmaeil.com/article/20260414500422"
+  }
+ },
+ "ess": {
+  "round_trip_efficiency": {
+   "value": 0.66,
+   "alt": 0.71,
+   "status": "confirmed",
+   "note": "소규모 태양광 연계 ESS 16곳 실측: 종합효율(충전효율 x 방전효율) 평균 약 66%, 최고 약 71%. 제조사 사양(PCS 96~97%)보다 낮은 실측값이므로 보수적 기준으로 사용",
+   "source": "윤금란·이태규·김정욱(2019), 실측데이터 기반 소규모 태양광발전소 연계용 ESS 효율 분석에 관한 연구, 전기전자학회논문지 23(2) 350-357",
+   "url": "https://koreascience.kr/article/JAKO201919263351907.pdf"
+  },
+  "sizing_kwh_per_kw": {
+   "value": [
+    0.5,
+    1.0,
+    2.0
+   ],
+   "base": 1.0,
+   "status": "todo",
+   "note": "시나리오 값(출처 없음). 결과는 세 경우 모두 제시"
+  }
+ },
+ "weather": {
+  "asos_daegu_station_id": {
+   "value": 143,
+   "status": "confirmed",
+   "note": "업로드된 ASOS 시간자료(2025) 지점=143, 지점명=대구",
+   "source": "기상청 기상자료개방포털 ASOS 시간자료",
+   "url": "https://data.kma.go.kr/data/grnd/selectAsosRltmList.do?pgmNo=36"
+  },
+  "asos_daegu_2025_annual_insolation_kwh_m2": {
+   "value": 1564.9,
+   "status": "derived",
+   "note": "2025년 시간별 일사(MJ/m2) 합 5,633.7 / 3.6. 수평면 기준, 결측 시간 보정 전",
+   "source": "기상청 ASOS 시간자료 143 대구 2025"
+  }
+ },
+ "parking_analysis": {
+  "_note": "전국주차장정보표준데이터(대구 1,086행) 기반 1차 산출. 모두 추정치",
+  "daegu_rows": {
+   "value": 1086,
+   "status": "derived",
+   "note": "제공기관명이 '대구광역시'로 시작하거나 주소에 '대구광역시' 포함. 공영 915 (노상 510/노외 403/부설 2), 민영 171",
+   "source": "전국주차장정보표준데이터",
+   "url": "https://www.data.go.kr/data/15012896/standard.do"
+  },
+  "mandate_candidates_offstreet_ge80": {
+   "value": 102,
+   "status": "derived",
+   "note": "공영 노외 & 주차구획수 80면 이상 (1,000㎡ / 일반형 12.5㎡). 구획 합 16,295면"
+  },
+  "mandate_capacity_mw_upper": {
+   "value": 20.4,
+   "status": "derived",
+   "note": "16,295면 x 12.5㎡ / 10 / 1000. 설치 불합리 구획 미차감 = 상한 성격. 시 계획 98개소·22MW와 대조"
+  },
+  "threshold_70_79": {
+   "value": 15,
+   "status": "derived",
+   "note": "공영 노외 70~79면. 확장형·장애인 구획 비중에 따라 1,000㎡ 넘을 수 있는 경계 구간"
+  },
+  "coverage_limit": {
+   "value": null,
+   "status": "todo",
+   "note": "표준데이터 대구 공영 915곳은 대구 통합주차정보 공개 수치(1,653곳)보다 적음 → 누락 가능성 한계로 명시. 주차빌딩·지하 여부 구분 컬럼 없음(이름으로 일부 식별)"
+  }
+ },
+ "forecast_baseline": {
+  "ewp_vs_kpx_2025": {
+   "value": {
+    "days": 263,
+    "hours": "06~19시(동서발전 hh+1 = KPX 거래시간)",
+    "r": 0.892,
+    "nMAE_of_capacity": 0.069,
+    "sum_forecast_over_actual": 0.924
+   },
+   "status": "derived",
+   "note": "1차 확인. AI 모델은 같은 날짜·시간대로 비교해야 함"
+  }
+ },
+ "ev_charging": {
+  "kwh_per_session_all": {
+   "value": 22.5,
+   "status": "derived",
+   "note": "합성데이터 대구 73,253건(중복 6,489건 제거) 평균. 공영주차장 유형 6,565건 평균 23.1",
+   "source": "한국환경공단 전기차 충전건별 충전량 합성데이터(2024 원본 기반)",
+   "url": "https://www.data.go.kr/data/15153595/openapi.do"
+  },
+  "hourly_profile_usable": {
+   "value": false,
+   "status": "confirmed",
+   "note": "충전 시작 시각이 24시간 거의 균등(시간대별 건수 변동계수 0.049, 시간당 약 4.2%). 실제 시간대 패턴을 반영하지 않는 것으로 판단 → 시간대 수요곡선에는 쓰지 않음. 충전시간도 충전량과 비례하지 않음(데이터 설명에 명시)"
+  },
+  "timing_basis": {
+   "value": "계절·시간대별 요금 구간(TOU) 기반 시나리오",
+   "status": "todo",
+   "note": "ESS 충방전 시점은 요금 구간으로 설정. 실측 시간대 충전 통계 출처 확보 시 교체"
+  }
+ },
+ "yield_kwh_per_kw": {
+  "low": {
+   "value": 1152,
+   "status": "derived",
+   "note": "한수원 경북 지붕형 '본사사옥지붕태양광' 2025 계량전력량/설비용량. 경사 낮은 지붕형이 주차장 캐노피와 유사하다는 가정",
+   "source": "한국수력원자력 태양광 시계열 발전정보",
+   "url": "https://www.data.go.kr/data/15165984/fileData.do"
+  },
+  "mid": {
+   "value": 1286,
+   "status": "derived",
+   "note": "한수원 경북 12개 발전소 2025 kWh/kW 중앙값 (범위 1,078~1,437)",
+   "source": "한국수력원자력 태양광 시계열 발전정보",
+   "url": "https://www.data.go.kr/data/15165984/fileData.do"
+  },
+  "high": {
+   "value": 1324,
+   "status": "derived",
+   "note": "KPX 대구 2025 150,718.1MWh / 동서발전 pvKpxRst 113.791MW",
+   "source": "한국전력거래소 + 한국동서발전",
+   "url": "https://www.data.go.kr/data/15065269/fileData.do"
+  },
+  "crosscheck_asos_pr": {
+   "value": [
+    1174,
+    1252
+   ],
+   "status": "derived",
+   "note": "ASOS 143 대구 2025 수평면 일사 1,564.9kWh/㎡ x 성능비 0.75~0.80 (성능비는 일반 범위 가정값, 출처 미확보 → 교차 확인용으로만 사용)"
+  }
+ }
+}

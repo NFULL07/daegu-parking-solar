@@ -1,0 +1,102 @@
+{
+ "label": "검증 결과(2025 실측 대비, 추정 아님). 중첩 교차검증: 바깥 = 월 단위 12겹, 안쪽 = 설정 선택 4겹",
+ "n_hours": 3682,
+ "n_days": 263,
+ "hours": "동서발전 제공 06~19시(시작 시각) 구간만 비교. 2025년 102일은 원천 결측으로 제외",
+ "capacity_mw": 113.791,
+ "target": "전력거래소 대구 시간별 태양광 거래량(MWh)",
+ "hourly": {
+  "official_ewp": {
+   "nMAE_pct": 6.91,
+   "nRMSE_pct": 10.03,
+   "bias_pct": -2.0,
+   "r": 0.892
+  },
+  "ai": {
+   "nMAE_pct": 6.26,
+   "nRMSE_pct": 9.36,
+   "bias_pct": 0.41,
+   "r": 0.903
+  }
+ },
+ "improvement": {
+  "nMAE_pctpt": 0.65,
+  "relative_pct": 9.4,
+  "pctpt_95ci_day_bootstrap": [
+   0.27,
+   1.03
+  ]
+ },
+ "daily_total_nMAE_pct": {
+  "ewp": 2.96,
+  "ai_nested": 2.73
+ },
+ "ai_better_hour_share": 0.556,
+ "by_month": {
+  "1": {
+   "days": 25,
+   "ewp_nMAE": 5.73,
+   "ai_nMAE": 3.56
+  },
+  "2": {
+   "days": 23,
+   "ewp_nMAE": 7.12,
+   "ai_nMAE": 6.77
+  },
+  "3": {
+   "days": 30,
+   "ewp_nMAE": 6.4,
+   "ai_nMAE": 7.55
+  },
+  "4": {
+   "days": 20,
+   "ewp_nMAE": 5.82,
+   "ai_nMAE": 5.39
+  },
+  "5": {
+   "days": 27,
+   "ewp_nMAE": 7.81,
+   "ai_nMAE": 7.44
+  },
+  "6": {
+   "days": 23,
+   "ewp_nMAE": 7.36,
+   "ai_nMAE": 8.17
+  },
+  "7": {
+   "days": 24,
+   "ewp_nMAE": 8.01,
+   "ai_nMAE": 7.64
+  },
+  "8": {
+   "days": 24,
+   "ewp_nMAE": 7.92,
+   "ai_nMAE": 6.51
+  },
+  "9": {
+   "days": 24,
+   "ewp_nMAE": 8.29,
+   "ai_nMAE": 7.26
+  },
+  "10": {
+   "days": 2,
+   "ewp_nMAE": 8.09,
+   "ai_nMAE": 6.4
+  },
+  "11": {
+   "days": 17,
+   "ewp_nMAE": 5.68,
+   "ai_nMAE": 3.72
+  },
+  "12": {
+   "days": 24,
+   "ewp_nMAE": 5.29,
+   "ai_nMAE": 3.74
+  }
+ },
+ "model": {
+  "type": "Gradient Boosting (scikit-learn HistGradientBoostingRegressor)",
+  "inputs": "하루 전 예보 기상(예측 일사, 대기권밖 일사, 하늘상태, 기온, 습도, 풍속) + 시각·계절 + 공식 예측 이용률",
+  "role": "공식 예측을 대체하지 않고 보정하는 모델. 입력은 모두 전날 14시 발표 시점에 확보 가능한 값"
+ }
+}
