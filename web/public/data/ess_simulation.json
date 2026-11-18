@@ -1,0 +1,357 @@
+{
+ "label": "시뮬레이션(추정). 2025년 동서발전 예측이 있는 263일 대상, 에너지량 기준, 요금 단가 미적용. 계획 = 전날 14시 예측으로 다음날 저녁 공급량 확약",
+ "pv_mw": 19.19,
+ "eta": 0.66,
+ "eta_alt": 0.71,
+ "charge_window": "10~17시",
+ "discharge_window": "18~21시",
+ "n_days": 263,
+ "scenarios": {
+  "0.5h": {
+   "eta_base": {
+    "none": {
+     "commit_abs_err_mwh_per_day": 0.04,
+     "committed_mwh_total": 1665.5,
+     "reliable_mwh_total": 1655.5,
+     "shortfall_mwh_total": 10.0,
+     "shortfall_days": 3,
+     "unused_mwh_total": 0.0
+    },
+    "ewp": {
+     "commit_abs_err_mwh_per_day": 0.04,
+     "committed_mwh_total": 1665.5,
+     "reliable_mwh_total": 1655.5,
+     "shortfall_mwh_total": 10.0,
+     "shortfall_days": 3,
+     "unused_mwh_total": 0.0
+    },
+    "ai": {
+     "commit_abs_err_mwh_per_day": 0.04,
+     "committed_mwh_total": 1665.5,
+     "reliable_mwh_total": 1655.5,
+     "shortfall_mwh_total": 10.0,
+     "shortfall_days": 3,
+     "unused_mwh_total": 0.0
+    },
+    "ewp_q20": {
+     "commit_abs_err_mwh_per_day": 0.04,
+     "committed_mwh_total": 1665.5,
+     "reliable_mwh_total": 1655.5,
+     "shortfall_mwh_total": 10.0,
+     "shortfall_days": 3,
+     "unused_mwh_total": 0.0
+    },
+    "ai_q20": {
+     "commit_abs_err_mwh_per_day": 0.04,
+     "committed_mwh_total": 1665.5,
+     "reliable_mwh_total": 1655.5,
+     "shortfall_mwh_total": 10.0,
+     "shortfall_days": 3,
+     "unused_mwh_total": 0.0
+    },
+    "actual": {
+     "commit_abs_err_mwh_per_day": 0.0,
+     "committed_mwh_total": 1655.5,
+     "reliable_mwh_total": 1655.5,
+     "shortfall_mwh_total": 0.0,
+     "shortfall_days": 0,
+     "unused_mwh_total": 0.0
+    },
+    "_ess_mwh": 9.6,
+    "_deliver_mwh_total": 1655.5,
+    "_full_charge_day_share": 0.989
+   },
+   "eta_alt": {
+    "none": {
+     "commit_abs_err_mwh_per_day": 0.04,
+     "committed_mwh_total": 1791.7,
+     "reliable_mwh_total": 1780.9,
+     "shortfall_mwh_total": 10.7,
+     "shortfall_days": 3,
+     "unused_mwh_total": 0.0
+    },
+    "ewp": {
+     "commit_abs_err_mwh_per_day": 0.04,
+     "committed_mwh_total": 1791.7,
+     "reliable_mwh_total": 1780.9,
+     "shortfall_mwh_total": 10.7,
+     "shortfall_days": 3,
+     "unused_mwh_total": 0.0
+    },
+    "ai": {
+     "commit_abs_err_mwh_per_day": 0.04,
+     "committed_mwh_total": 1791.7,
+     "reliable_mwh_total": 1780.9,
+     "shortfall_mwh_total": 10.7,
+     "shortfall_days": 3,
+     "unused_mwh_total": 0.0
+    },
+    "ewp_q20": {
+     "commit_abs_err_mwh_per_day": 0.04,
+     "committed_mwh_total": 1791.7,
+     "reliable_mwh_total": 1780.9,
+     "shortfall_mwh_total": 10.7,
+     "shortfall_days": 3,
+     "unused_mwh_total": 0.0
+    },
+    "ai_q20": {
+     "commit_abs_err_mwh_per_day": 0.04,
+     "committed_mwh_total": 1791.7,
+     "reliable_mwh_total": 1780.9,
+     "shortfall_mwh_total": 10.7,
+     "shortfall_days": 3,
+     "unused_mwh_total": 0.0
+    },
+    "actual": {
+     "commit_abs_err_mwh_per_day": 0.0,
+     "committed_mwh_total": 1780.9,
+     "reliable_mwh_total": 1780.9,
+     "shortfall_mwh_total": 0.0,
+     "shortfall_days": 0,
+     "unused_mwh_total": 0.0
+    },
+    "_ess_mwh": 9.6,
+    "_deliver_mwh_total": 1780.9,
+    "_full_charge_day_share": 0.989
+   }
+  },
+  "1.0h": {
+   "eta_base": {
+    "none": {
+     "commit_abs_err_mwh_per_day": 0.35,
+     "committed_mwh_total": 3331.0,
+     "reliable_mwh_total": 3239.1,
+     "shortfall_mwh_total": 91.9,
+     "shortfall_days": 22,
+     "unused_mwh_total": 0.0
+    },
+    "ewp": {
+     "commit_abs_err_mwh_per_day": 0.34,
+     "committed_mwh_total": 3325.6,
+     "reliable_mwh_total": 3237.7,
+     "shortfall_mwh_total": 87.8,
+     "shortfall_days": 22,
+     "unused_mwh_total": 1.3
+    },
+    "ai": {
+     "commit_abs_err_mwh_per_day": 0.35,
+     "committed_mwh_total": 3326.8,
+     "reliable_mwh_total": 3236.7,
+     "shortfall_mwh_total": 90.1,
+     "shortfall_days": 21,
+     "unused_mwh_total": 2.4
+    },
+    "ewp_q20": {
+     "commit_abs_err_mwh_per_day": 0.34,
+     "committed_mwh_total": 3305.9,
+     "reliable_mwh_total": 3227.4,
+     "shortfall_mwh_total": 78.5,
+     "shortfall_days": 22,
+     "unused_mwh_total": 11.6
+    },
+    "ai_q20": {
+     "commit_abs_err_mwh_per_day": 0.45,
+     "committed_mwh_total": 3271.8,
+     "reliable_mwh_total": 3196.1,
+     "shortfall_mwh_total": 75.7,
+     "shortfall_days": 19,
+     "unused_mwh_total": 43.0
+    },
+    "actual": {
+     "commit_abs_err_mwh_per_day": 0.0,
+     "committed_mwh_total": 3239.1,
+     "reliable_mwh_total": 3239.1,
+     "shortfall_mwh_total": 0.0,
+     "shortfall_days": 0,
+     "unused_mwh_total": 0.0
+    },
+    "_ess_mwh": 19.19,
+    "_deliver_mwh_total": 3239.1,
+    "_full_charge_day_share": 0.916
+   },
+   "eta_alt": {
+    "none": {
+     "commit_abs_err_mwh_per_day": 0.38,
+     "committed_mwh_total": 3583.3,
+     "reliable_mwh_total": 3484.5,
+     "shortfall_mwh_total": 98.9,
+     "shortfall_days": 22,
+     "unused_mwh_total": 0.0
+    },
+    "ewp": {
+     "commit_abs_err_mwh_per_day": 0.36,
+     "committed_mwh_total": 3577.5,
+     "reliable_mwh_total": 3483.0,
+     "shortfall_mwh_total": 94.5,
+     "shortfall_days": 22,
+     "unused_mwh_total": 1.4
+    },
+    "ai": {
+     "commit_abs_err_mwh_per_day": 0.38,
+     "committed_mwh_total": 3578.8,
+     "reliable_mwh_total": 3481.9,
+     "shortfall_mwh_total": 96.9,
+     "shortfall_days": 21,
+     "unused_mwh_total": 2.6
+    },
+    "ewp_q20": {
+     "commit_abs_err_mwh_per_day": 0.37,
+     "committed_mwh_total": 3556.4,
+     "reliable_mwh_total": 3471.9,
+     "shortfall_mwh_total": 84.5,
+     "shortfall_days": 22,
+     "unused_mwh_total": 12.5
+    },
+    "ai_q20": {
+     "commit_abs_err_mwh_per_day": 0.49,
+     "committed_mwh_total": 3519.7,
+     "reliable_mwh_total": 3438.2,
+     "shortfall_mwh_total": 81.4,
+     "shortfall_days": 20,
+     "unused_mwh_total": 46.2
+    },
+    "actual": {
+     "commit_abs_err_mwh_per_day": 0.0,
+     "committed_mwh_total": 3484.5,
+     "reliable_mwh_total": 3484.5,
+     "shortfall_mwh_total": 0.0,
+     "shortfall_days": 0,
+     "unused_mwh_total": 0.0
+    },
+    "_ess_mwh": 19.19,
+    "_deliver_mwh_total": 3484.5,
+    "_full_charge_day_share": 0.916
+   }
+  },
+  "2.0h": {
+   "eta_base": {
+    "none": {
+     "commit_abs_err_mwh_per_day": 2.23,
+     "committed_mwh_total": 6662.0,
+     "reliable_mwh_total": 6074.6,
+     "shortfall_mwh_total": 587.4,
+     "shortfall_days": 60,
+     "unused_mwh_total": 0.0
+    },
+    "ewp": {
+     "commit_abs_err_mwh_per_day": 1.91,
+     "committed_mwh_total": 6214.2,
+     "reliable_mwh_total": 5893.1,
+     "shortfall_mwh_total": 321.1,
+     "shortfall_days": 44,
+     "unused_mwh_total": 181.6
+    },
+    "ai": {
+     "commit_abs_err_mwh_per_day": 1.93,
+     "committed_mwh_total": 6364.1,
+     "reliable_mwh_total": 5966.1,
+     "shortfall_mwh_total": 398.0,
+     "shortfall_days": 48,
+     "unused_mwh_total": 108.6
+    },
+    "ewp_q20": {
+     "commit_abs_err_mwh_per_day": 2.3,
+     "committed_mwh_total": 5953.6,
+     "reliable_mwh_total": 5712.3,
+     "shortfall_mwh_total": 241.3,
+     "shortfall_days": 38,
+     "unused_mwh_total": 362.4
+    },
+    "ai_q20": {
+     "commit_abs_err_mwh_per_day": 2.52,
+     "committed_mwh_total": 5796.7,
+     "reliable_mwh_total": 5604.8,
+     "shortfall_mwh_total": 191.9,
+     "shortfall_days": 29,
+     "unused_mwh_total": 469.8
+    },
+    "actual": {
+     "commit_abs_err_mwh_per_day": 0.0,
+     "committed_mwh_total": 6074.6,
+     "reliable_mwh_total": 6074.6,
+     "shortfall_mwh_total": 0.0,
+     "shortfall_days": 0,
+     "unused_mwh_total": 0.0
+    },
+    "_ess_mwh": 38.38,
+    "_deliver_mwh_total": 6074.6,
+    "_full_charge_day_share": 0.76
+   },
+   "eta_alt": {
+    "none": {
+     "commit_abs_err_mwh_per_day": 2.4,
+     "committed_mwh_total": 7166.7,
+     "reliable_mwh_total": 6534.8,
+     "shortfall_mwh_total": 631.9,
+     "shortfall_days": 60,
+     "unused_mwh_total": 0.0
+    },
+    "ewp": {
+     "commit_abs_err_mwh_per_day": 2.06,
+     "committed_mwh_total": 6684.9,
+     "reliable_mwh_total": 6339.5,
+     "shortfall_mwh_total": 345.4,
+     "shortfall_days": 44,
+     "unused_mwh_total": 195.3
+    },
+    "ai": {
+     "commit_abs_err_mwh_per_day": 2.07,
+     "committed_mwh_total": 6846.2,
+     "reliable_mwh_total": 6418.0,
+     "shortfall_mwh_total": 428.2,
+     "shortfall_days": 48,
+     "unused_mwh_total": 116.8
+    },
+    "ewp_q20": {
+     "commit_abs_err_mwh_per_day": 2.47,
+     "committed_mwh_total": 6404.6,
+     "reliable_mwh_total": 6145.0,
+     "shortfall_mwh_total": 259.6,
+     "shortfall_days": 38,
+     "unused_mwh_total": 389.8
+    },
+    "ai_q20": {
+     "commit_abs_err_mwh_per_day": 2.71,
+     "committed_mwh_total": 6235.9,
+     "reliable_mwh_total": 6029.4,
+     "shortfall_mwh_total": 206.4,
+     "shortfall_days": 29,
+     "unused_mwh_total": 505.4
+    },
+    "actual": {
+     "commit_abs_err_mwh_per_day": 0.0,
+     "committed_mwh_total": 6534.8,
+     "reliable_mwh_total": 6534.8,
+     "shortfall_mwh_total": 0.0,
+     "shortfall_days": 0,
+     "unused_mwh_total": 0.0
+    },
+    "_ess_mwh": 38.38,
+    "_deliver_mwh_total": 6534.8,
+    "_full_charge_day_share": 0.76
+   }
+  }
+ },
+ "annual_365d_perfect": {
+  "0.5h": {
+   "charged_mwh": 3483.0,
+   "evening_supply_mwh": 2299.0,
+   "loss_mwh": 1184.0,
+   "ev_sessions_equiv": 102161
+  },
+  "1.0h": {
+   "charged_mwh": 6797.0,
+   "evening_supply_mwh": 4486.0,
+   "loss_mwh": 2311.0,
+   "ev_sessions_equiv": 199371
+  },
+  "2.0h": {
+   "charged_mwh": 12607.0,
+   "evening_supply_mwh": 8321.0,
+   "loss_mwh": 4286.0,
+   "ev_sessions_equiv": 369807
+  }
+ },
+ "note": "ESS는 전력을 시간 이동시키며 충방전 손실(실측 평균 34%)이 있으므로 온실가스 추가 감축으로 계산하지 않음. 저녁 공급량의 EV 환산은 합성데이터 1회 평균 충전량 22.5kWh 기준 환산치",
+ "summary": "ESS 0.5~1시간(용량 kWh/설비 kW) 규모에서는 10~17시 태양광으로 만충되는 날이 92~99%라 예측 여부와 관계없이 운영 결과가 거의 같음. 2시간 규모(만충일 76%)부터 예측이 의미 있음: 예측 없음 대비 저녁 공급 부족량이 공식 예측 45%, AI 32% 감소, 하위 20% 안전계획 적용 시 공식 59%, AI 67% 감소(대신 확약량 감소)"
+}

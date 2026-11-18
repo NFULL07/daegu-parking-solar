@@ -14,6 +14,7 @@
 | `scripts/fetch_public_api.py` | 공공데이터포털 API 수집 (인증키는 실행 시 입력) |
 | `out/` | 대시보드용 결과 JSON |
 | `docs/HANDOFF.md` | 화면 개발 인수인계 |
+| `web/` | 분석 도구(React + TypeScript, 정적 사이트). 계산 로직 `web/src/lib/calc.ts`, 파이썬 결과 일치 테스트 `calc.test.ts` |
 
 ## 재현
 
@@ -21,6 +22,16 @@
 pip install pandas numpy scikit-learn shapely
 ./run_all.sh
 ```
+
+## 분석 도구(web)
+
+```bash
+cd web && npm install
+npm test        # 브라우저 계산 = 파이썬 결과 확인
+npm run build   # dist/ 를 GitHub Pages나 기관 내부 정적 서버에 그대로 올리면 동작
+```
+
+기능: 설치의무 대상 지도, 가정값 조정, 현장 확인 결과 반영(설치 불가·실제 면적), 결과 CSV 내려받기, 작업 내용 저장·불러오기, 다른 시·도 표준데이터 CSV 업로드, AI 예측 검증 보기, ESS 크기·효율 시뮬레이터. 서버 없이 브라우저 안에서만 계산하며 올린 파일은 전송하지 않는다.
 
 ## 결과 성격
 

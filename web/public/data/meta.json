@@ -1,0 +1,89 @@
+{
+ "defaults": {
+  "stall_m2": 12.5,
+  "kw_per_m2": 0.1,
+  "mandate_m2": 1000,
+  "threshold_m2": 875,
+  "mixed_stall_m2": 12.926,
+  "yields": {
+   "low": 1152,
+   "mid": 1286,
+   "high": 1324
+  },
+  "ef": 0.4173,
+  "eta": 0.66,
+  "ess_ratio": 1.0,
+  "ev_kwh": 22.5,
+  "dedup_radius_m": 300
+ },
+ "city_plan": {
+  "sites": 98,
+  "mw": 22,
+  "source": "브레이크뉴스 대구",
+  "url": "https://dk.breaknews.com/205799"
+ },
+ "sources": [
+  {
+   "name": "전국주차장정보표준데이터",
+   "org": "행정안전부·지자체",
+   "url": "https://www.data.go.kr/data/15012896/standard.do"
+  },
+  {
+   "name": "지역별 시간별 태양광 발전량",
+   "org": "한국전력거래소",
+   "url": "https://www.data.go.kr/data/15065269/fileData.do"
+  },
+  {
+   "name": "하루 전 시도별 태양광 발전량 예측",
+   "org": "한국동서발전",
+   "url": "https://www.data.go.kr/data/15144541/openapi.do"
+  },
+  {
+   "name": "기상정보 융합 태양광 시계열 발전정보",
+   "org": "한국수력원자력",
+   "url": "https://www.data.go.kr/data/15165984/fileData.do"
+  },
+  {
+   "name": "ASOS 시간자료(대구 143)",
+   "org": "기상청",
+   "url": "https://data.kma.go.kr/data/grnd/selectAsosRltmList.do?pgmNo=36"
+  },
+  {
+   "name": "전기차 충전건별 충전량 합성데이터",
+   "org": "한국환경공단",
+   "url": "https://www.data.go.kr/data/15153595/openapi.do"
+  },
+  {
+   "name": "행정동 경계",
+   "org": "통계청 SGIS, vuski/admdongkor(CC BY 4.0)",
+   "url": "https://github.com/vuski/admdongkor"
+  }
+ ],
+ "refs": [
+  {
+   "name": "공영주차장 재생e 설치의무화제도",
+   "org": "신재생에너지센터",
+   "url": "https://www.knrec.or.kr/biz/introduce/new_policy/public_parking.do?gubun=A"
+  },
+  {
+   "name": "2023년 전력배출계수 공표",
+   "org": "쿠키뉴스",
+   "url": "https://www.kukinews.com/article/view/kuk202512180131"
+  },
+  {
+   "name": "계절·시간대별 요금 개편",
+   "org": "경북매일",
+   "url": "https://www.kbmaeil.com/article/20260414500422"
+  },
+  {
+   "name": "ESS 효율 실측(윤금란 외 2019)",
+   "org": "전기전자학회논문지",
+   "url": "https://koreascience.kr/article/JAKO201919263351907.pdf"
+  },
+  {
+   "name": "확장형 주차구획 30%",
+   "org": "정책브리핑",
+   "url": "https://www.korea.kr/news/issueQAView.do?newsId=148838703"
+  }
+ ]
+}
