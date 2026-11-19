@@ -51,17 +51,17 @@ export const TIER_COLOR: Record<string, string> = {
 
 // 지도 점(SVG 속성)은 CSS 변수를 읽지 못하므로 같은 색을 hex로 둔다
 export const TIER_HEX: Record<string, string> = {
-  '1단계': '#2a78d6',
-  '2단계': '#86b6ef',
-  '현장 검토': '#eb6834',
-  '문턱(대상 가능)': '#1baf7a',
-  '문턱 구간': '#9fd9c2',
-  '제외(현장 확인)': '#52514e',
-  under: '#c3c2b7',
+  '1단계': '#1f63c6',
+  '2단계': '#93b6ea',
+  '현장 검토': '#e9a400',
+  '문턱(대상 가능)': '#23966c',
+  '문턱 구간': '#a7d8c3',
+  '제외(현장 확인)': '#6b747a',
+  under: '#c2c8cb',
 };
 
 // 차트(SVG 속성)용 색
 export const C = {
-  blue: '#2a78d6', blueLight: '#86b6ef', orange: '#eb6834', aqua: '#1baf7a',
-  muted: '#c3c2b7', mutedDark: '#8f8d86', ink: '#0b0b0b', ink2: '#52514e', grid: '#e8e7e3', hover: 'rgba(42,120,214,0.06)',
+  blue: '#1f63c6', blueLight: '#93b6ea', orange: '#e9a400', aqua: '#23966c',
+  muted: '#c2c8cb', mutedDark: '#7d878d', ink: '#1b2126', ink2: '#545e66', grid: '#e3e6e7', hover: 'rgba(31,99,198,0.06)',
 };

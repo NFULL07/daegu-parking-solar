@@ -12,7 +12,7 @@ function Dumbbell({ ev }: { ev: ForecastEval }) {
     <figure className="fig">
       <figcaption>
         <b>12개월 중 {better}개월은 AI 오차가 더 작다</b>
-        <span className="muted small"> · {rows.filter((r) => r.ai_nMAE >= r.ewp_nMAE).map((r) => `${r.m}월`).join('·')}은 더 큼</span>
+        <span className="muted small">, {rows.filter((r) => r.ai_nMAE >= r.ewp_nMAE).map((r) => `${r.m}월`).join('과 ')}은 더 크다</span>
       </figcaption>
       <svg viewBox={`0 0 ${W} ${y0 + rows.length * step + 26}`} role="img" aria-label="월별 예측 오차 비교" className="svg">
         {[0, 2, 4, 6, 8].map((t) => (
@@ -31,7 +31,7 @@ function Dumbbell({ ev }: { ev: ForecastEval }) {
               <line x1={X(Math.min(r.ai_nMAE, r.ewp_nMAE))} x2={X(Math.max(r.ai_nMAE, r.ewp_nMAE))} y1={y} y2={y} stroke={C.grid} strokeWidth={3} />
               <circle cx={X(r.ewp_nMAE)} cy={y} r={6} fill={C.mutedDark} stroke="#fff" strokeWidth={2}><title>{`${r.m}월 공식 ${r.ewp_nMAE}% (${r.days}일)`}</title></circle>
               <circle cx={X(r.ai_nMAE)} cy={y} r={6} fill={C.blue} stroke="#fff" strokeWidth={2}><title>{`${r.m}월 AI ${r.ai_nMAE}% (${r.days}일)`}</title></circle>
-              <text x={X(Math.max(r.ai_nMAE, r.ewp_nMAE)) + 12} y={y + 4} fontSize="11" fill={C.ink2}>{r.ewp_nMAE.toFixed(1)} → {r.ai_nMAE.toFixed(1)}</text>
+              <text x={X(Math.max(r.ai_nMAE, r.ewp_nMAE)) + 12} y={y + 4} fontSize="11" fill={C.ink2}>{r.ewp_nMAE.toFixed(1)}에서 {r.ai_nMAE.toFixed(1)}</text>
             </g>
           );
         })}
@@ -60,9 +60,9 @@ export default function ForecastSection({ ev, ts }: { ev: ForecastEval; ts: Fore
   const e = ev.hourly;
 
   return (
-    <section className="card">
+    <section className="card" id="forecast">
       <div className="sec-head">
-        <h2>3. AI 하루 전 발전량 예측 <span className="tag ver">검증</span></h2>
+        <h2>AI 하루 전 발전량 예측 <span className="tag ver">검증</span></h2>
         <p>전날 14시에 알 수 있는 예보 기상과 공식 예측을 입력으로, 대구 전체 태양광 발전량을 시간별로 예측했습니다. 공식 예측을 대체하지 않고 보정하는 모델입니다.</p>
       </div>
       <div className="grid2">
@@ -79,7 +79,7 @@ export default function ForecastSection({ ev, ts }: { ev: ForecastEval; ts: Fore
           </table>
           <p className="small">
             오차 {ev.improvement.relative_pct}% 감소(−{ev.improvement.nMAE_pctpt}%p, 95% 신뢰구간 {ev.improvement.pctpt_95ci_day_bootstrap[0]}~{ev.improvement.pctpt_95ci_day_bootstrap[1]}%p).
-            검증: {ev.n_days}일 · {fmt(ev.n_hours)}시간, 한 달씩 빼고 학습하는 중첩 교차검증. {ev.model.type}.
+            검증은 {ev.n_days}일 {fmt(ev.n_hours)}시간, 한 달씩 빼고 학습하는 중첩 교차검증입니다. 모델은 {ev.model.type}.
           </p>
           <Dumbbell ev={ev} />
         </div>
@@ -89,8 +89,8 @@ export default function ForecastSection({ ev, ts }: { ev: ForecastEval; ts: Fore
             <select value={date} onChange={(e) => setDate(e.target.value)} aria-label="날짜">
               {[...days.keys()].sort().map((d) => <option key={d}>{d}</option>)}
             </select>
-            <button className="ghost" onClick={() => setDate(pick('ai'))}>AI가 가장 나았던 날</button>
-            <button className="ghost" onClick={() => setDate(pick('ewp'))}>공식이 가장 나았던 날</button>
+            <button className="ghost" onClick={() => setDate(pick('ai'))}>AI가 가장 정확했던 날</button>
+            <button className="ghost" onClick={() => setDate(pick('ewp'))}>공식 예측이 더 정확했던 날</button>
             <button className="ghost" onClick={() => setDate(pick('cloudy'))}>흐린 날</button>
           </div>
           <div style={{ height: 300 }}>

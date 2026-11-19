@@ -2,13 +2,13 @@ import { Meta } from '../lib/types';
 
 export default function Footer({ meta }: { meta: Meta }) {
   return (
-    <footer className="foot">
+    <footer className="foot" id="about">
       <div className="foot-inner">
         <div>
           <h3>데이터 출처</h3>
-          <ul>{meta.sources.map((s) => <li key={s.url}><a href={s.url} target="_blank" rel="noreferrer">{s.name}</a> · {s.org}</li>)}</ul>
+          <ul>{meta.sources.map((s) => <li key={s.url}><a href={s.url} target="_blank" rel="noreferrer">{s.name}</a>, {s.org}</li>)}</ul>
           <h3>참고 자료</h3>
-          <ul>{meta.refs.map((s) => <li key={s.url}><a href={s.url} target="_blank" rel="noreferrer">{s.name}</a> · {s.org}</li>)}</ul>
+          <ul>{meta.refs.map((s) => <li key={s.url}><a href={s.url} target="_blank" rel="noreferrer">{s.name}</a>, {s.org}</li>)}</ul>
         </div>
         <div>
           <h3>수치의 성격</h3>
@@ -25,7 +25,7 @@ export default function Footer({ meta }: { meta: Meta }) {
               <li>설치비·수익 등 경제성은 분석하지 않았습니다.</li>
             </ul>
           </details>
-          <p className="muted small">지도 © OpenStreetMap contributors · 글꼴 Pretendard(SIL OFL) · 분석 코드와 원자료는 GitHub 저장소에 공개합니다.</p>
+          <p className="muted small">지도 © OpenStreetMap contributors. 글꼴 IBM Plex Sans KR(SIL OFL). 분석 코드와 원자료는 GitHub 저장소에 공개합니다.</p>
         </div>
       </div>
     </footer>

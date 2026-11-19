@@ -50,23 +50,23 @@ export default function ResultsSection({ sites, sm, meta, isDaegu, dedup, sido, 
     setOverrides((prev) => { const n = { ...prev }; const o = { ...n[id], status: (st || undefined) as Override['status'] }; if (o.status || o.area_m2) n[id] = o; else delete n[id]; return n; });
 
   return (
-    <section className="card">
+    <section className="card" id="effect">
       <div className="sec-head">
-        <h2>2. 기대효과와 설치 순서</h2>
+        <h2>기대효과와 설치 순서</h2>
         <p>대상 {fmt(sm.mandate.sites)}곳에 의무 용량을 모두 설치하면 연 <b>{fmt(sm.mandate.gen_gwh, 1)}GWh</b> 발전, 온실가스 <b>{fmt(sm.mandate.co2_t / 1000, 1)}천 tCO2eq</b> 감축이 예상됩니다 <span className="tag est">기대효과·추정</span></p>
       </div>
 
       <div className="grid2">
         <div>
           <h3>구·군별 설치용량</h3>
-          <p className="muted small">상위 3곳 {fmt(top3, 2)}MW, 전체의 {fmt((top3 / (sm.mandate.cap_mw || 1)) * 100)}%</p>
+          <p className="muted small">상위 3개 구·군이 {fmt(top3, 2)}MW로 전체의 {fmt((top3 / (sm.mandate.cap_mw || 1)) * 100)}%</p>
           <div style={{ height: Math.max(220, guData.length * 30 + 30) }}>
             <ResponsiveContainer>
               <BarChart data={guData} layout="vertical" margin={{ left: 8, right: 90, top: 4, bottom: 4 }} barCategoryGap={6}>
                 <CartesianGrid horizontal={false} stroke={C.grid} />
                 <XAxis type="number" tick={{ fontSize: 12, fill: C.ink2 }} unit="MW" axisLine={false} tickLine={false} />
                 <YAxis type="category" dataKey="gu" width={60} tick={{ fontSize: 13, fill: C.ink }} axisLine={false} tickLine={false} />
-                <Tooltip formatter={(v: number, _n, p) => [`${fmt(v, 2)}MW · ${(p.payload as { sites: number }).sites}곳`, '설치용량']} cursor={{ fill: C.hover }} />
+                <Tooltip formatter={(v: number, _n, p) => [`${fmt(v, 2)}MW, ${(p.payload as { sites: number }).sites}곳`, '설치용량']} cursor={{ fill: C.hover }} />
                 <Bar dataKey="mw" radius={[0, 4, 4, 0]} isAnimationActive={false}>
                   {guData.map((g, i) => <Cell key={g.gu} fill={i < 3 ? C.blue : C.muted} />)}
                   <LabelList dataKey="mw" position="right" formatter={(v: number) => `${fmt(v, 2)}MW`} style={{ fontSize: 12, fill: C.ink2 }} />
@@ -92,8 +92,8 @@ export default function ResultsSection({ sites, sm, meta, isDaegu, dedup, sido, 
           </table>
           {isDaegu && (
             <div className="compare">
-              <div><span className="muted small">이 분석</span><b>{fmt(sm.mandate.sites)}곳 · {fmt(sm.mandate.cap_mw, 2)}MW</b></div>
-              <div><span className="muted small">대구시 계획 (<a href={meta.city_plan.url} target="_blank" rel="noreferrer">{meta.city_plan.source}</a>)</span><b>{meta.city_plan.sites}곳 · {meta.city_plan.mw}MW</b></div>
+              <div><span className="muted small">이 분석</span><b>{fmt(sm.mandate.sites)}곳, {fmt(sm.mandate.cap_mw, 2)}MW</b></div>
+              <div><span className="muted small">대구시 계획 (<a href={meta.city_plan.url} target="_blank" rel="noreferrer">{meta.city_plan.source}</a>)</span><b>{meta.city_plan.sites}곳, {meta.city_plan.mw}MW</b></div>
             </div>
           )}
           <p className="small">
@@ -102,7 +102,7 @@ export default function ResultsSection({ sites, sm, meta, isDaegu, dedup, sido, 
           </p>
           {showDedup && (
             <ul className="small dedup">
-              {dedup.map((d) => <li key={d.dropped + d.kept}>{d.dropped}({d.dropped_stalls}면) → {d.kept}({d.kept_stalls}면, {d.kept_provider}) {d.distance_m}m</li>)}
+              {dedup.map((d) => <li key={d.dropped + d.kept}>시 제공 {d.dropped}({d.dropped_stalls}면)을 빼고 {d.kept_provider} 제공 {d.kept}({d.kept_stalls}면) 유지, 거리 {d.distance_m}m</li>)}
             </ul>
           )}
         </div>

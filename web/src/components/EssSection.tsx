@@ -29,13 +29,13 @@ export default function EssSection({ essIn, pvMw, params, setParams }: Props) {
     .map((h) => ({ hh: `${h.hh}시`, 태양광: h.pv, 'ESS 충전': h.charge, 'ESS 방전': h.discharge, '저장량': h.soc }));
 
   return (
-    <section className="card">
+    <section className="card" id="ess">
       <div className="sec-head">
-        <h2>4. ESS 운영 시뮬레이터 <span className="tag sim">시뮬레이션</span></h2>
+        <h2>ESS 운영 시뮬레이터 <span className="tag sim">시뮬레이션</span></h2>
         <p>대상 주차장 태양광({fmt(pvMw, 2)}MW)에 ESS를 붙여 낮 10~17시에 충전하고 저녁 18~21시(2026년 개편 최고요금 구간)에 방전합니다. 전날 14시 예측으로 다음 날 저녁 공급량을 약속했을 때 얼마나 모자라는지 비교합니다.</p>
       </div>
       <div className="controls">
-        <label className="field">ESS 용량: 설비 {fmt(ratio, 2)}시간분 = <b>{fmt(pvMw * ratio, 1)}MWh</b>
+        <label className="field">ESS 용량 <b>{fmt(pvMw * ratio, 1)}MWh <span className="muted">(설비 {fmt(ratio, 2)}시간분)</span></b>
           <input type="range" min={0.25} max={3} step={0.25} value={ratio} onChange={(e) => set('ess_ratio', Number(e.target.value))} />
         </label>
         <label className="field">ESS 종합효율 <b>{fmt(eta * 100)}%</b>
@@ -65,7 +65,7 @@ export default function EssSection({ essIn, pvMw, params, setParams }: Props) {
                 <CartesianGrid horizontal={false} stroke={C.grid} />
                 <XAxis type="number" tick={{ fontSize: 12, fill: C.ink2 }} unit="MWh" axisLine={false} tickLine={false} />
                 <YAxis type="category" dataKey="name" width={150} tick={{ fontSize: 12, fill: C.ink }} axisLine={false} tickLine={false} />
-                <Tooltip formatter={(v: number, _n, p) => [`${fmt(v, 1)}MWh · ${(p.payload as { days: number }).days}일`, '부족량']} cursor={{ fill: C.hover }} />
+                <Tooltip formatter={(v: number, _n, p) => [`${fmt(v, 1)}MWh, ${(p.payload as { days: number }).days}일`, '부족량']} cursor={{ fill: C.hover }} />
                 <Bar dataKey="v" radius={[0, 4, 4, 0]} isAnimationActive={false}>
                   {bars.map((b) => <Cell key={b.key} fill={b.key === best.key ? C.blue : C.muted} />)}
                   <LabelList dataKey="v" position="right" style={{ fontSize: 12, fill: C.ink2 }}
@@ -103,7 +103,7 @@ export default function EssSection({ essIn, pvMw, params, setParams }: Props) {
                 <Legend wrapperStyle={{ fontSize: 12 }} />
                 <Area type="monotone" dataKey="태양광" stroke={C.mutedDark} fill={C.muted} fillOpacity={0.5} isAnimationActive={false} />
                 <Bar dataKey="ESS 충전" fill={C.blueLight} radius={[4, 4, 0, 0]} isAnimationActive={false} />
-                <Bar dataKey="ESS 방전" fill={C.orange} radius={[4, 4, 0, 0]} isAnimationActive={false} />
+                <Bar dataKey="ESS 방전" fill={C.ink2} radius={[4, 4, 0, 0]} isAnimationActive={false} />
                 <Line type="linear" dataKey="저장량" stroke={C.blue} strokeWidth={2} dot={false} isAnimationActive={false} />
               </ComposedChart>
             </ResponsiveContainer>

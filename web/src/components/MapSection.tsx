@@ -59,8 +59,8 @@ export default function MapSection({ sites, geo, selected, onSelect, overrides, 
   return (
     <section id="map" className="card">
       <div className="sec-head">
-        <h2>1. 설치의무 대상 지도</h2>
-        <p>점 크기는 설치용량, 색은 제안 단계입니다. 점을 누르면 상세 정보와 현장 확인 입력란이 열립니다.</p>
+        <h2>대상 지도</h2>
+        <p>점 크기는 설치용량, 색은 제안 단계입니다. 점을 누르면 오른쪽에 상세 정보와 현장 확인 입력란이 열립니다.</p>
       </div>
       <div className="filters" role="group" aria-label="지도 필터">
         <select value={gu} onChange={(e) => setGu(e.target.value)} aria-label="구·군">
@@ -79,19 +79,19 @@ export default function MapSection({ sites, geo, selected, onSelect, overrides, 
         <MapContainer center={[35.87, 128.6]} zoom={11} scrollWheelZoom={false} className="map">
           <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          {geo && <GeoJSON data={geo as unknown as GeoJSON.GeoJsonObject} style={{ color: '#52514e', weight: 1, fillOpacity: 0, dashArray: '3 3' }} />}
+          {geo && <GeoJSON data={geo as unknown as GeoJSON.GeoJsonObject} style={{ color: '#1e252b', weight: 1.2, fillOpacity: 0, dashArray: '4 4' }} />}
           <Fit bounds={bounds} />
           <FlyTo site={sel} />
           {[...vis].sort((a, b) => order(a) - order(b)).map((s) => (
             <CircleMarker key={s.id} center={[s.lat, s.lon]} radius={r(s)}
               pathOptions={{
-                color: s.id === selected ? '#0b0b0b' : '#fcfcfb', weight: s.id === selected ? 3 : 1.5,
+                color: s.id === selected ? '#1e252b' : '#ffffff', weight: s.id === selected ? 3 : 1.5,
                 fillColor: TIER_HEX[s.tier ?? 'under'],
                 fillOpacity: s.group === 'under' ? 0.6 : 0.9,
               }}
               eventHandlers={{ click: () => onSelect(s.id) }}>
               <Tooltip direction="top" offset={[0, -4]}>
-                <b>{s.name}</b><br />{s.gu} · {fmt(s.stalls)}면 · {fmt(s.cap_kw)}kW{s.tier ? ` · ${s.tier}` : ''}
+                <b>{s.name}</b><br />{s.gu}, {fmt(s.stalls)}면, {fmt(s.cap_kw)}kW{s.tier ? `, ${s.tier}` : ''}
               </Tooltip>
             </CircleMarker>
           ))}
@@ -104,7 +104,7 @@ export default function MapSection({ sites, geo, selected, onSelect, overrides, 
               <div className="d-title">{sel.name}</div>
               <div className="muted small">{sel.address}</div>
               <dl>
-                <dt>구·군 / 유형</dt><dd>{sel.gu} · 공영 {sel.type}</dd>
+                <dt>구·군, 유형</dt><dd>{sel.gu}, 공영 {sel.type}</dd>
                 <dt>주차구획</dt><dd>{fmt(sel.stalls)}면</dd>
                 <dt>면적</dt><dd>{fmt(sel.area_m2)}㎡ {sel.areaActual ? <span className="tag ok">실측 입력</span> : <span className="tag est">추정</span>}</dd>
                 <dt>설치용량</dt><dd>{fmt(sel.cap_kw)}kW</dd>
@@ -112,7 +112,7 @@ export default function MapSection({ sites, geo, selected, onSelect, overrides, 
                 <dt>연 감축량</dt><dd>{fmt(sel.co2_t)}tCO2eq</dd>
                 <dt>단계</dt><dd>{sel.tier ? <><span className="dot" style={{ background: TIER_COLOR[sel.tier] }} /> {sel.tier}{sel.rank ? ` (용량 ${sel.rank}위)` : ''}</> : '대상 아님'}</dd>
                 {sel.autoFlags.length > 0 && <><dt>제약 표기</dt><dd>{sel.autoFlags.join(', ')}{sel.status === 'confirm' && ' → 확인 완료'}</dd></>}
-                <dt>데이터 기준일</dt><dd>{sel.dataDate} · {sel.provider}</dd>
+                <dt>데이터 기준일</dt><dd>{sel.dataDate}, {sel.provider}</dd>
               </dl>
               <div className="ov">
                 <div className="ov-title">현장 확인 결과 입력</div>

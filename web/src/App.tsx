@@ -9,6 +9,7 @@ import EssSection from './components/EssSection';
 import AssumptionsPanel from './components/AssumptionsPanel';
 import RegionLoader from './components/RegionLoader';
 import Footer from './components/Footer';
+import Hero from './components/Hero';
 
 const DAEGU = '대구광역시';
 
@@ -56,61 +57,38 @@ export default function App() {
   if (!meta || !ds || !p || !prep || !fc || !essIn) return <div className="loading">데이터를 불러오는 중…</div>;
 
   const isDaegu = ds.sido === DAEGU;
-  const t1 = sm.byTier['1단계'], rv = sm.byTier['현장 검토'];
-  const clean = t1.sites + sm.byTier['2단계'].sites;
   const ovCount = Object.values(overrides).filter((o) => o.status || o.area_m2).length;
 
   return (
     <div className="app">
-      <header className="top">
-        <div className="top-inner">
-          <div>
-            <div className="eyebrow">공공데이터 기반 분석 도구 · 2026 대구 기후·환경·탄소중립 공공데이터 AI 활용대회</div>
-            <h1>공영주차장 태양광 설치의무, 어디부터 어떻게</h1>
-            <p className="sub">
-              {ds.sido} 공영주차장 {fmt(prep.nRows)}개 행에서 설치의무 대상을 고르고, 설치 순서와 ESS 운영을 계산합니다.
-              {ds.uploaded && <> 불러온 파일: <b>{ds.fileName}</b></>}
-            </p>
-          </div>
-          <div className="actions">
-            <button onClick={() => setPanel('params')}>가정값 조정{defaults && JSON.stringify(p) !== JSON.stringify(defaults) ? ' ●' : ''}</button>
-            <button onClick={() => setPanel('region')}>다른 지역 데이터</button>
-            {ds.uploaded && <button className="ghost" onClick={() => { setUpload(null); setSelected(null); }}>대구 기본 데이터로</button>}
-          </div>
-        </div>
-      </header>
-
-      <main>
-        <section className="kpis" aria-label="핵심 결과">
-          <div className="kpi">
-            <div className="kpi-label">설치의무 대상 후보 <span className="tag est">추정</span></div>
-            <div className="kpi-value">{fmt(sm.mandate.sites)}곳 · {fmt(sm.mandate.cap_mw, 2)}MW</div>
-            <div className="kpi-note">
-              {fmt(sm.mandate.stalls)}면, 용량은 상한값
-              {isDaegu && <> · 대구시 계획 {meta.city_plan.sites}곳·{meta.city_plan.mw}MW</>}
+      <header className="bar">
+        <div className="bar-inner">
+          <div className="brand">
+            <svg viewBox="0 0 28 28" width="28" height="28" aria-hidden="true"><rect width="28" height="28" rx="5" fill="#1e252b" /><path d="M6 13l3-6h10l3 6z" fill="#3b7ddd" /><rect x="5" y="14" width="18" height="2.5" rx="1" fill="#f2b705" /><rect x="7.5" y="16.5" width="2" height="6" fill="#e9eded" /><rect x="18.5" y="16.5" width="2" height="6" fill="#e9eded" /></svg>
+            <div>
+              <div className="brand-name">공영주차장 태양광 설치의무 분석 도구</div>
+              <div className="brand-sub">{ds.uploaded ? `${ds.sido}, ${ds.fileName}` : `${ds.sido}, 전국주차장정보표준데이터`} 기준</div>
             </div>
           </div>
-          <div className="kpi">
-            <div className="kpi-label">1단계 설치 <span className="tag est">추정</span></div>
-            <div className="kpi-value">{fmt(t1.sites)}곳이 용량 절반</div>
-            <div className="kpi-note">제약 없는 {fmt(clean)}곳 중 {fmt(sm.tier1ShareOfClean * 100)}%가 {fmt(t1.cap_mw, 2)}MW</div>
+          <div className="actions">
+            <button className="ghost" onClick={() => setPanel('params')}>가정값 조정{defaults && JSON.stringify(p) !== JSON.stringify(defaults) ? ' (변경됨)' : ''}</button>
+            <button className="ghost" onClick={() => setPanel('region')}>다른 지역 불러오기</button>
+            {ds.uploaded && <button className="ghost" onClick={() => { setUpload(null); setSelected(null); }}>대구로 돌아가기</button>}
           </div>
-          <div className="kpi warn">
-            <div className="kpi-label">현장 검토 필요 <span className="tag est">추정</span></div>
-            <div className="kpi-value">{fmt(rv.sites)}곳 · {fmt(rv.cap_mw, 2)}MW</div>
-            <div className="kpi-note">대상 용량의 {fmt((rv.cap_mw / (sm.mandate.cap_mw || 1)) * 100)}% · 둔치·임시·주차빌딩 등</div>
-          </div>
-          <div className="kpi accent">
-            <div className="kpi-label">AI 하루 전 예측 오차 <span className="tag ver">검증</span></div>
-            <div className="kpi-value">{fc.ev.improvement.relative_pct}% 감소</div>
-            <div className="kpi-note">공식 {fc.ev.hourly.official_ewp.nMAE_pct}% → AI {fc.ev.hourly.ai.nMAE_pct}% (대구 2025)</div>
-          </div>
-        </section>
+        </div>
+        <nav className="tabs" aria-label="섹션">
+          <a href="#map">대상 지도</a><a href="#effect">기대효과와 설치 순서</a><a href="#forecast">AI 예측</a><a href="#ess">ESS 운영</a><a href="#about">출처와 한계</a>
+        </nav>
+      </header>
 
-        {import.meta.env.VITE_NO_LOCAL_FONT && <div className="banner">미리보기 화면입니다. 지도 배경, CSV·작업 내용 파일 내려받기는 정식 주소(GitHub Pages)에서 동작합니다.</div>}
+      <Hero sites={sites} sm={sm} ev={fc.ev} sido={ds.sido} isDaegu={isDaegu} cityPlan={meta.city_plan}
+        onPick={(id) => { setSelected(id); document.getElementById('map')?.scrollIntoView({ behavior: 'smooth' }); }} />
+
+      <main>
+        {import.meta.env.VITE_PREVIEW && <div className="banner">미리보기 화면입니다. 지도 배경, CSV·작업 내용 파일 내려받기는 정식 주소(GitHub Pages)에서 동작합니다.</div>}
         {toast && <div className="banner" role="status">{toast} <button className="link" onClick={() => setToast('')}>닫기</button></div>}
         {ovCount > 0 && <div className="banner">현장 확인 결과 {ovCount}건이 반영된 계산입니다. 지도나 표에서 바꾸거나 되돌릴 수 있습니다.</div>}
-        {ds.uploaded && <div className="banner">AI 예측과 ESS 시뮬레이션은 대구 2025년 실측 발전 패턴 기준입니다. {ds.sido}에는 참고용으로만 쓰세요. kW당 발전량도 가정값에서 지역에 맞게 바꿀 수 있습니다.</div>}
+        {ds.uploaded && <div className="banner">AI 예측과 ESS 운영은 대구 2025년 발전 실적으로 계산한 값이라 {ds.sido}에는 참고용입니다. kW당 발전량은 가정값 조정에서 지역에 맞게 바꿀 수 있습니다.</div>}
 
         <MapSection sites={sites} geo={isDaegu ? geo : null} selected={selected} onSelect={setSelected}
           overrides={overrides} setOverrides={setOverrides} params={p} />
