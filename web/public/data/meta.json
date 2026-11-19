@@ -14,7 +14,8 @@
   "eta": 0.66,
   "ess_ratio": 1.0,
   "ev_kwh": 22.5,
-  "dedup_radius_m": 300
+  "dedup_radius_m": 300,
+  "household_kwh_month": 332
  },
  "city_plan": {
   "sites": 98,
@@ -84,6 +85,11 @@
    "name": "확장형 주차구획 30%",
    "org": "정책브리핑",
    "url": "https://www.korea.kr/news/issueQAView.do?newsId=148838703"
+  },
+  {
+   "name": "4인 가구 월평균 332kWh(2023 전기요금 발표 기준)",
+   "org": "뉴스핌",
+   "url": "https://newspim.com/news/view/20230515000122"
   }
  ]
 }

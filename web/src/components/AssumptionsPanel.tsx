@@ -15,7 +15,7 @@ const Y_NOTE: Record<Exclude<YieldKey, 'custom'>, string> = {
 
 export default function AssumptionsPanel({ params: p, defaults, onChange, onClose, onExport, onImport, sido, ovCount, onResetOverrides }: Props) {
   const set = <K extends keyof Params>(k: K, v: Params[K]) => onChange((x) => ({ ...p, ...x, [k]: v }));
-  const numIn = (k: 'stall_m2' | 'kw_per_m2' | 'ef' | 'ev_kwh' | 'dedup_radius_m', label: string, note: string, step = 0.01) => (
+  const numIn = (k: 'stall_m2' | 'kw_per_m2' | 'ef' | 'ev_kwh' | 'dedup_radius_m' | 'household_kwh_month', label: string, note: string, step = 0.01) => (
     <label className="field">{label}
       <input type="number" step={step} value={p[k]} onChange={(e) => e.target.value && set(k, Number(e.target.value))} />
       <span className="muted small">{note} (기본 {defaults[k]})</span>
@@ -43,8 +43,9 @@ export default function AssumptionsPanel({ params: p, defaults, onChange, onClos
         {numIn('stall_m2', '일반형 주차구획 면적(㎡)', '주차장법 시행규칙 제3조 2.5m x 5.0m', 0.01)}
         {numIn('kw_per_m2', '설치의무 용량(kW/㎡)', '유효 주차구획 면적 10㎡당 1kW', 0.01)}
 
-        <h3>온실가스·전기차</h3>
+        <h3>온실가스·전기차·가구 환산</h3>
         {numIn('ef', '전력배출계수(tCO2eq/MWh)', '2023년 계수, 2025-12 공표', 0.0001)}
+        {numIn('household_kwh_month', '4인 가구 월평균 전력사용량(kWh)', '2023년 5월 정부 전기요금 발표 기준', 1)}
         {numIn('ev_kwh', '전기차 1회 충전량(kWh)', '환경공단 합성데이터 대구 평균', 0.1)}
 
         <h3>데이터 정리</h3>

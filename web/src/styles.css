@@ -222,3 +222,22 @@ main { max-width: 1240px; margin: 0 auto; padding: 24px 24px 48px; display: flex
   * { transition: none !important; scroll-behavior: auto !important; }
 }
 .tbl.sites { min-width: 780px; }
+
+/* 우리 구·군 */
+.gu-pick { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.gu-pick button { background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 5px 13px; font-size: 14px; }
+.gu-pick button:hover { border-color: var(--ink-3); background: var(--paper); }
+.gu-pick button.on { background: var(--asphalt); color: #fff; border-color: var(--asphalt); }
+.citizen-body { display: grid; grid-template-columns: 7fr 5fr; gap: 12px 32px; align-items: start; }
+.citizen-say { grid-column: 1 / -1; font-size: 19px; line-height: 1.7; margin: 0 0 6px; max-width: 46em; }
+.citizen-say b { font-weight: 600; color: var(--cobalt-ink); }
+.citizen-nums { margin: 0; display: grid; grid-template-columns: 1fr 1fr; border-top: 2px solid var(--asphalt); }
+.citizen-nums > div { padding: 10px 2px 12px; border-bottom: 1px solid var(--line); }
+.citizen-nums > div:nth-child(odd) { padding-right: 16px; }
+.citizen-nums dt { font-size: 13px; color: var(--ink-2); }
+.citizen-nums dd { margin: 2px 0 0; font-size: 22px; font-weight: 600; }
+.citizen-nums dd span { display: block; font-size: 12.5px; font-weight: 400; color: var(--ink-2); }
+.citizen-list ol { margin: 6px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+.tier-mark { margin-left: 8px; font-size: 12px; color: var(--ink-2); white-space: nowrap; }
+.tier-mark i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 4px; }
+@media (max-width: 1000px) { .citizen-body { grid-template-columns: 1fr; } .citizen-say { font-size: 17px; } }

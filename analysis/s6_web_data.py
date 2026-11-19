@@ -38,7 +38,8 @@ meta = {
     'defaults': {'stall_m2': 12.5, 'kw_per_m2': 0.1, 'mandate_m2': 1000, 'threshold_m2': 875, 'mixed_stall_m2': 0.67 * 12.5 + 0.30 * 13.52 + 0.03 * 16.5,
                  'yields': {k2: A['yield_kwh_per_kw'][k2]['value'] for k2 in ('low', 'mid', 'high')},
                  'ef': A['emission_factor']['grid_tco2eq_per_mwh_2023']['value'], 'eta': 0.66, 'ess_ratio': 1.0,
-                 'ev_kwh': A['ev_charging']['kwh_per_session_all']['value'], 'dedup_radius_m': 300},
+                 'ev_kwh': A['ev_charging']['kwh_per_session_all']['value'], 'dedup_radius_m': 300,
+                 'household_kwh_month': A['household']['kwh_per_month_4person']['value']},
     'city_plan': {'sites': 98, 'mw': 22, 'source': '브레이크뉴스 대구', 'url': 'https://dk.breaknews.com/205799'},
     'sources': [
         {'name': '전국주차장정보표준데이터', 'org': '행정안전부·지자체', 'url': 'https://www.data.go.kr/data/15012896/standard.do'},
@@ -55,6 +56,7 @@ meta = {
         {'name': '계절·시간대별 요금 개편', 'org': '경북매일', 'url': 'https://www.kbmaeil.com/article/20260414500422'},
         {'name': 'ESS 효율 실측(윤금란 외 2019)', 'org': '전기전자학회논문지', 'url': 'https://koreascience.kr/article/JAKO201919263351907.pdf'},
         {'name': '확장형 주차구획 30%', 'org': '정책브리핑', 'url': 'https://www.korea.kr/news/issueQAView.do?newsId=148838703'},
+        {'name': '4인 가구 월평균 332kWh(2023 전기요금 발표 기준)', 'org': '뉴스핌', 'url': 'https://newspim.com/news/view/20230515000122'},
     ],
 }
 json.dump(meta, open(f'{OUT}/meta.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)

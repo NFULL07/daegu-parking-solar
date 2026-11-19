@@ -19,6 +19,7 @@ export interface Params {
   ess_ratio: number;       // ESS 용량 = 설비 kW x 시간
   ev_kwh: number;          // 전기차 1회 충전량 kWh
   dedup_radius_m: number;
+  household_kwh_month: number; // 4인 가구 월평균 전력사용량(kWh)
 }
 
 export interface Override {

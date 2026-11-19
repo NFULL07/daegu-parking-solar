@@ -10,6 +10,7 @@ import AssumptionsPanel from './components/AssumptionsPanel';
 import RegionLoader from './components/RegionLoader';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
+import CitizenSection from './components/CitizenSection';
 
 const DAEGU = '대구광역시';
 
@@ -77,7 +78,7 @@ export default function App() {
           </div>
         </div>
         <nav className="tabs" aria-label="섹션">
-          <a href="#map">대상 지도</a><a href="#effect">기대효과와 설치 순서</a><a href="#forecast">AI 예측</a><a href="#ess">ESS 운영</a><a href="#about">출처와 한계</a>
+          <a href="#local">우리 구·군</a><a href="#map">대상 지도</a><a href="#effect">기대효과와 설치 순서</a><a href="#forecast">AI 예측</a><a href="#ess">ESS 운영</a><a href="#about">출처와 한계</a>
         </nav>
       </header>
 
@@ -89,6 +90,9 @@ export default function App() {
         {toast && <div className="banner" role="status">{toast} <button className="link" onClick={() => setToast('')}>닫기</button></div>}
         {ovCount > 0 && <div className="banner">현장 확인 결과 {ovCount}건이 반영된 계산입니다. 지도나 표에서 바꾸거나 되돌릴 수 있습니다.</div>}
         {ds.uploaded && <div className="banner">AI 예측과 ESS 운영은 대구 2025년 발전 실적으로 계산한 값이라 {ds.sido}에는 참고용입니다. kW당 발전량은 가정값 조정에서 지역에 맞게 바꿀 수 있습니다.</div>}
+
+        <CitizenSection sites={sites} sido={ds.sido} params={p}
+          onPick={(id) => { setSelected(id); document.getElementById('map')?.scrollIntoView({ behavior: 'smooth' }); }} />
 
         <MapSection sites={sites} geo={isDaegu ? geo : null} selected={selected} onSelect={setSelected}
           overrides={overrides} setOverrides={setOverrides} params={p} />
