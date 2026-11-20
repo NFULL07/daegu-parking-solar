@@ -1,0 +1,74 @@
+[
+ {
+  "dropped": "신천3동주차장",
+  "dropped_stalls": 25,
+  "kept": "신천3동 공영주차장(전통시장",
+  "kept_stalls": 25,
+  "kept_provider": "대구광역시 동구",
+  "distance_m": 17
+ },
+ {
+  "dropped": "공항2공영주차장",
+  "dropped_stalls": 172,
+  "kept": "공항2공영주차장",
+  "kept_stalls": 172,
+  "kept_provider": "대구광역시 동구",
+  "distance_m": 176
+ },
+ {
+  "dropped": "공항1공영주차장",
+  "dropped_stalls": 80,
+  "kept": "공항1공영주차장",
+  "kept_stalls": 80,
+  "kept_provider": "대구광역시 동구",
+  "distance_m": 176
+ },
+ {
+  "dropped": "팔달신시장주차장",
+  "dropped_stalls": 158,
+  "kept": "팔달신시장(공영)",
+  "kept_stalls": 164,
+  "kept_provider": "대구광역시 북구",
+  "distance_m": 40
+ },
+ {
+  "dropped": "우편집중국주차장",
+  "dropped_stalls": 25,
+  "kept": "우편집중국서편(공영)",
+  "kept_stalls": 29,
+  "kept_provider": "대구광역시 북구",
+  "distance_m": 215
+ },
+ {
+  "dropped": "신천둔치주차장",
+  "dropped_stalls": 412,
+  "kept": "신천둔치(공영)",
+  "kept_stalls": 437,
+  "kept_provider": "대구광역시 북구",
+  "distance_m": 269
+ },
+ {
+  "dropped": "서변2주차장",
+  "dropped_stalls": 85,
+  "kept": "서변2(공영)",
+  "kept_stalls": 95,
+  "kept_provider": "대구광역시 북구",
+  "distance_m": 0
+ },
+ {
+  "dropped": "서변1주차장",
+  "dropped_stalls": 82,
+  "kept": "서변1(공영)",
+  "kept_stalls": 91,
+  "kept_provider": "대구광역시 북구",
+  "distance_m": 0
+ },
+ {
+  "dropped": "산업용재관남측주차장",
+  "dropped_stalls": 97,
+  "kept": "산업용재관남편(공영)",
+  "kept_stalls": 112,
+  "kept_provider": "대구광역시 북구",
+  "distance_m": 1
+ }
+]
